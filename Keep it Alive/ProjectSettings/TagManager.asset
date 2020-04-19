@@ -8,6 +8,7 @@ TagManager:
   - MOON
   - RAIN
   - WIND
+  - Orbiter
   layers:
   - Default
   - TransparentFX
