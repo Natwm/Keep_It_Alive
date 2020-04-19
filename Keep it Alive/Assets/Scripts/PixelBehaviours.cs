@@ -24,6 +24,10 @@ public class PixelBehaviours : MonoBehaviour
     public AnimationCurve reduce ;
 
     [Space]
+    [Header("Animator")]
+    [SerializeField] Animator anim;
+
+    [Space]
     [Header("Les couleurs")]
     [SerializeField] MyColor[] myColor;
     [SerializeField] MyImage[] myImg;
@@ -38,6 +42,7 @@ public class PixelBehaviours : MonoBehaviour
     #region Update ||Start
     void Start()
     {
+        anim = GetComponent<Animator>();
         mySprite = GetComponent<SpriteRenderer>();
         spotMat = GetComponent<Renderer>();
         UpdateLand(startState);
@@ -135,60 +140,47 @@ public class PixelBehaviours : MonoBehaviour
     {
         switch (newLand) {
             case "montagne":
-                mySprite.sprite = myImg[0].Image;
-                spotMat.material.color = myColor[0].Color;
-
+                anim.SetTrigger("isMountain");
                 break;
 
             case "tundra":
-                mySprite.sprite = myImg[1].Image;
-                spotMat.material.color = myColor[1].Color;
+                anim.SetTrigger("isTundra");
                 break;
 
             case "lac":
-                mySprite.sprite = myImg[2].Image;
-                spotMat.material.color = myColor[2].Color;
+                anim.SetTrigger("isWater");
                 break;
 
             case "desert":
-                mySprite.sprite = myImg[3].Image;
-                spotMat.material.color = myColor[3].Color;
+                anim.SetTrigger("isDesert");
                 break;
 
             case "prairie":
-                mySprite.sprite = myImg[4].Image;
-                spotMat.material.color = myColor[4].Color;
+                anim.SetTrigger("isPlaine");
                 break;
 
             case "foret":
-                mySprite.sprite = myImg[5].Image;
-                spotMat.material.color = myColor[5].Color;
+                anim.SetTrigger("isForest");
                 break;
 
             case "ocean":
-                mySprite.sprite = myImg[6].Image;
-                spotMat.material.color = myColor[6].Color;
+                anim.SetTrigger("isWater");
                 break;
 
             case "banquise":
-                mySprite.sprite = myImg[7].Image;
-                spotMat.material.color = myColor[7].Color;
+                anim.SetTrigger("isBanquise");
                 break;
 
             case "glacier":
-                mySprite.sprite = myImg[8].Image;
-                spotMat.material.color = myColor[8].Color;
+                anim.SetTrigger("isGlacier");
                 break;
 
             case "neutral":
-                mySprite.sprite = myImg[9].Image;
-                spotMat.material.color = myColor[9].Color;
+                anim.SetTrigger("isWater");
                 break;
 
             default:
-                mySprite.sprite = myImg[9].Image;
-                //spotMat.material.color = myColor[9].Color;
-                
+                anim.SetTrigger("isWater");
                 break;
         }
     }

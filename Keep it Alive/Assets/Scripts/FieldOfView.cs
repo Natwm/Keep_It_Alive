@@ -124,6 +124,7 @@ public class FieldOfView : MonoBehaviour
         vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; i++)
         {
+            Debug.Log("transform.InverseTransformPoint(viewPoint[i]); " + transform.InverseTransformPoint(viewPoint[i]));
             vertices[i + 1] = transform.InverseTransformPoint(viewPoint[i]);
 
             if (i < vertexCount - 2)
