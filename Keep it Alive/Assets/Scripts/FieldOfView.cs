@@ -40,7 +40,7 @@ public class FieldOfView : MonoBehaviour
 
         StartCoroutine("FindTargetWithDelay", delay);
     }
-    private void Update()
+    private void LateUpdate()
     {
         DrawFieldOfView();
     }
@@ -103,7 +103,7 @@ public class FieldOfView : MonoBehaviour
 
     #endregion
 
-    void DrawFieldOfView()
+        void DrawFieldOfView()
     {
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
         float stepAngleSize = viewAngle / stepCount;
@@ -111,21 +111,22 @@ public class FieldOfView : MonoBehaviour
 
         for (int i = 0; i < stepCount; i++)
         {
-            float angle = transform.eulerAngles.z - viewAngle/2 + stepAngleSize * i;
-            Debug.DrawLine(transform.position, transform.position + DirFromAngle(angle, true) * viewRadius,Color.red);
+            float angle = transform.eulerAngles.z - viewAngle / 2 + stepAngleSize * i;
             ViewCastInfo newViewCast = ViewCast(angle);
             viewPoint.Add(newViewCast.point);
         }
+
         int vertexCount = viewPoint.Count + 1;
         Vector3[] vertices = new Vector3[vertexCount];
         int[] triangles = new int[(vertexCount - 2) * 3];
+        
 
         vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; i++)
         {
             vertices[i + 1] = transform.InverseTransformPoint(viewPoint[i]);
 
-            if(i < vertexCount - 2)
+            if (i < vertexCount - 2)
             {
                 triangles[i * 3] = 0;
                 triangles[i * 3 + 1] = i + 1;
