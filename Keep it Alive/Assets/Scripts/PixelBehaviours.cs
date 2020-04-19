@@ -6,6 +6,7 @@ public class PixelBehaviours : MonoBehaviour
 {
 
     #region param
+    [SerializeField] string startState = "";
     [Header ("Les éléments affectant la cellule")]
     [SerializeField] private List<string> affect;
 
@@ -26,9 +27,9 @@ public class PixelBehaviours : MonoBehaviour
     [SerializeField] MyColor[] myColor;
     [SerializeField] MyImage[] myImg;
 
-    //Variable pour modifier les couleurs
-    Renderer myMat;
+    //Variable pour modifier les couleurs et les sprites
     SpriteRenderer mySprite;
+    Renderer a;
 
     #endregion
 
@@ -36,53 +37,52 @@ public class PixelBehaviours : MonoBehaviour
     #region Update ||Start
     void Start()
     {
-        myMat = GetComponent<Renderer>();
         mySprite = GetComponent<SpriteRenderer>();
+        a = GetComponent<Renderer>();
+        UpdateLand(startState);
+        //mySprite.color = Color.red;
     }
     private void Update()
     {
-        /*if (affect.Count == 0 && sun > 0)
+        if(affect.Count == 0)
         {
-            Debug.Log("ok");
-
-            sun -= reduce.Evaluate(Time.deltaTime);
-        }*/
+            GoBackToNormal();
+        }
+        
+        //sun -= reduce.Evaluate(Time.deltaTime);
     }
     #endregion
 
-    public void Add(string objectTag)
+    public void UpdateValues(string objectTag)
     {
         Debug.Log(objectTag);
-        //if(affect.Count != 0)
-        //{
+        
             switch (objectTag)
             {
                 case "SUN":
                     sun++;
+                    affect.Add("SUN");
                     break;
 
                 case "MOON":
                     moon++;
+                    affect.Add("MOON");
                     break;
 
                 case "WIND":
                     wind++;
+                    affect.Add("WIND");
                     break;
 
                 case "RAIN":
                     rain++;
+                    affect.Add("RAIN");
                     break;
 
                 default:
                     Debug.Log("stop");
                     break;
-            }
-        //}
-        /*else
-        {
-            sun = (int)Mathf.Lerp(sun, 0, 10);
-        }*/
-        
+            }        
         VerifColor();
     }
 
@@ -135,55 +135,79 @@ public class PixelBehaviours : MonoBehaviour
         switch (newLand) {
             case "montagne":
                 mySprite.sprite = myImg[0].Image;
-                myMat.material.SetColor("_Color", myColor[0].Color);
+                a.material.color = myColor[0].Color;
+
                 break;
 
             case "tundra":
                 mySprite.sprite = myImg[1].Image;
-                myMat.material.SetColor("_Color", myColor[1].Color);
+                a.material.color = myColor[1].Color;
                 break;
 
             case "lac":
                 mySprite.sprite = myImg[2].Image;
-                myMat.material.SetColor("_Color", myColor[2].Color);
+                a.material.color = myColor[2].Color;
                 break;
 
             case "desert":
                 mySprite.sprite = myImg[3].Image;
-                myMat.material.SetColor("_Color", myColor[3].Color);
+                a.material.color = myColor[3].Color;
                 break;
 
             case "prairie":
                 mySprite.sprite = myImg[4].Image;
-                myMat.material.SetColor("_Color", myColor[4].Color);
+                a.material.color = myColor[4].Color;
                 break;
 
             case "foret":
                 mySprite.sprite = myImg[5].Image;
-                myMat.material.SetColor("_Color", myColor[5].Color);
+                a.material.color = myColor[5].Color;
                 break;
 
             case "ocean":
                 mySprite.sprite = myImg[6].Image;
-                myMat.material.SetColor("_Color", myColor[6].Color);
+                a.material.color = myColor[6].Color;
                 break;
 
             case "banquise":
                 mySprite.sprite = myImg[7].Image;
-                myMat.material.SetColor("_Color", myColor[7].Color);
+                a.material.color = myColor[7].Color;
                 break;
 
             case "glacier":
                 mySprite.sprite = myImg[8].Image;
-                myMat.material.SetColor("_Color", myColor[7].Color);
+                a.material.color = myColor[8].Color;
                 break;
 
             case "neutral":
                 mySprite.sprite = myImg[9].Image;
-                myMat.material.SetColor("_Color", myColor[7].Color);
+                a.material.color = myColor[9].Color;
+                break;
+
+            default:
+                mySprite.sprite = myImg[9].Image;
+                a.material.color = myColor[9].Color;
+                //mySprite.color = myColor[9].Color;
                 break;
         }
     }
+
+    void GoBackToNormal()
+    {
+        Debug.Log(Time.deltaTime);
+        if(sun >0)
+            sun -= reduce.Evaluate(Time.deltaTime);
+
+        if (sun >= 0)
+            moon -= reduce.Evaluate(Time.deltaTime);
+
+        if (sun >= 0)
+            rain -= reduce.Evaluate(Time.deltaTime);
+
+        if (sun >= 0)
+            wind -= reduce.Evaluate(Time.deltaTime); 
+    }
+
 
     #region Ontrigger
     private void OnTriggerEnter(Collider other)
@@ -192,7 +216,7 @@ public class PixelBehaviours : MonoBehaviour
         if(other.tag != null)
         {
             affect.Add(other.gameObject.name);
-            Add(other.tag);
+            UpdateValues(other.tag);
         }
     }
 

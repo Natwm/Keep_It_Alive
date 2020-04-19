@@ -80,7 +80,7 @@ public class FieldOfView : MonoBehaviour
     {
         foreach (GameObject spot in visibleGameobject)
         {
-            spot.GetComponent<PixelBehaviours>().Add(gameObject.tag);
+            spot.GetComponent<PixelBehaviours>().UpdateValues(gameObject.tag);
         }
     }
 
