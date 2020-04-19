@@ -7,6 +7,7 @@ public class PixelBehaviours : MonoBehaviour
 
     #region param
     [SerializeField] string startState = "";
+
     [Header ("Les éléments affectant la cellule")]
     [SerializeField] private List<string> affect;
 
@@ -29,7 +30,7 @@ public class PixelBehaviours : MonoBehaviour
 
     //Variable pour modifier les couleurs et les sprites
     SpriteRenderer mySprite;
-    Renderer a;
+    Renderer spotMat;
 
     #endregion
 
@@ -38,18 +39,18 @@ public class PixelBehaviours : MonoBehaviour
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
-        a = GetComponent<Renderer>();
+        spotMat = GetComponent<Renderer>();
         UpdateLand(startState);
         //mySprite.color = Color.red;
     }
     private void Update()
     {
-        if(affect.Count == 0)
+        if(affect.Count <= 0)
         {
+            Debug.Log("ok");
             GoBackToNormal();
         }
         
-        //sun -= reduce.Evaluate(Time.deltaTime);
     }
     #endregion
 
@@ -61,22 +62,22 @@ public class PixelBehaviours : MonoBehaviour
             {
                 case "SUN":
                     sun++;
-                    affect.Add("SUN");
+                    //affect.Add("SUN");
                     break;
 
                 case "MOON":
                     moon++;
-                    affect.Add("MOON");
+                    //affect.Add("MOON");
                     break;
 
                 case "WIND":
                     wind++;
-                    affect.Add("WIND");
+                    //affect.Add("WIND");
                     break;
 
                 case "RAIN":
                     rain++;
-                    affect.Add("RAIN");
+                    //affect.Add("RAIN");
                     break;
 
                 default:
@@ -135,76 +136,76 @@ public class PixelBehaviours : MonoBehaviour
         switch (newLand) {
             case "montagne":
                 mySprite.sprite = myImg[0].Image;
-                a.material.color = myColor[0].Color;
+                spotMat.material.color = myColor[0].Color;
 
                 break;
 
             case "tundra":
                 mySprite.sprite = myImg[1].Image;
-                a.material.color = myColor[1].Color;
+                spotMat.material.color = myColor[1].Color;
                 break;
 
             case "lac":
                 mySprite.sprite = myImg[2].Image;
-                a.material.color = myColor[2].Color;
+                spotMat.material.color = myColor[2].Color;
                 break;
 
             case "desert":
                 mySprite.sprite = myImg[3].Image;
-                a.material.color = myColor[3].Color;
+                spotMat.material.color = myColor[3].Color;
                 break;
 
             case "prairie":
                 mySprite.sprite = myImg[4].Image;
-                a.material.color = myColor[4].Color;
+                spotMat.material.color = myColor[4].Color;
                 break;
 
             case "foret":
                 mySprite.sprite = myImg[5].Image;
-                a.material.color = myColor[5].Color;
+                spotMat.material.color = myColor[5].Color;
                 break;
 
             case "ocean":
                 mySprite.sprite = myImg[6].Image;
-                a.material.color = myColor[6].Color;
+                spotMat.material.color = myColor[6].Color;
                 break;
 
             case "banquise":
                 mySprite.sprite = myImg[7].Image;
-                a.material.color = myColor[7].Color;
+                spotMat.material.color = myColor[7].Color;
                 break;
 
             case "glacier":
                 mySprite.sprite = myImg[8].Image;
-                a.material.color = myColor[8].Color;
+                spotMat.material.color = myColor[8].Color;
                 break;
 
             case "neutral":
                 mySprite.sprite = myImg[9].Image;
-                a.material.color = myColor[9].Color;
+                spotMat.material.color = myColor[9].Color;
                 break;
 
             default:
                 mySprite.sprite = myImg[9].Image;
-                a.material.color = myColor[9].Color;
-                //mySprite.color = myColor[9].Color;
+                //spotMat.material.color = myColor[9].Color;
+                
                 break;
         }
     }
 
     void GoBackToNormal()
     {
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(Time.deltaTime);
         if(sun >0)
             sun -= reduce.Evaluate(Time.deltaTime);
 
-        if (sun >= 0)
+        if (moon > 0)
             moon -= reduce.Evaluate(Time.deltaTime);
 
-        if (sun >= 0)
+        if (rain > 0)
             rain -= reduce.Evaluate(Time.deltaTime);
 
-        if (sun >= 0)
+        if (wind > 0)
             wind -= reduce.Evaluate(Time.deltaTime); 
     }
 
