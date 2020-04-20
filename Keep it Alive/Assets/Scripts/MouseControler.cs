@@ -27,5 +27,9 @@ public class MouseControler : MonoBehaviour
         if(Input.GetMouseButton(0) && orbiter !=null){
             orbiter.Drag();
         }
+
+        if(Input.GetMouseButtonUp(0)){
+            orbiter = null;
+        }
     }
 }
