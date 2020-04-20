@@ -7,7 +7,7 @@ public class Orbiter: MonoBehaviour
     public float radius, maxTurnRate, deltaTurnRate;
     public GameObject aim;
     public GameObject planete;
-
+    public List<AudioClip> clips;
 
     private Rigidbody2D rig;
     private float currentTurnRate;
@@ -69,5 +69,12 @@ public class Orbiter: MonoBehaviour
             0);
         
         print(aim.transform.position);
+    }
+
+    public void Select(){
+        AudioSource source = GetComponent<AudioSource>();
+        source.clip = clips[Random.Range(0, clips.Count)];
+        source.pitch = 1 + Random.Range(-0.1f,+0.1f);
+        source.Play();
     }
 }

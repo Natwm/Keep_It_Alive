@@ -16,11 +16,9 @@ public class MouseControler : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             Vector2 inputMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(inputMouse, Vector2.zero, Mathf.Infinity);
-            if(hit.collider == null)
-                print("null");
-            else if(hit.transform.tag == "Orbiter"){
-                print("touch");
+            if(hit.collider != null && hit.transform.tag == "Orbiter"){
                 orbiter = hit.transform.GetComponent<Orbiter>();
+                orbiter.Select();
             }
         }
         
