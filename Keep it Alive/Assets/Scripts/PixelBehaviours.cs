@@ -35,6 +35,7 @@ public class PixelBehaviours : MonoBehaviour
     //Variable pour modifier les couleurs et les sprites
     SpriteRenderer mySprite;
     Renderer spotMat;
+    float resetTimer = 0;
 
     #endregion
 
@@ -47,14 +48,20 @@ public class PixelBehaviours : MonoBehaviour
         spotMat = GetComponent<Renderer>();
         UpdateLand(startState);
         //mySprite.color = Color.red;
+        GoBackToNormal();
     }
     private void Update()
     {
-        if(affect.Count <= 0)
-        {
-            Debug.Log("ok");
-            GoBackToNormal();
+        resetTimer += Time.deltaTime;
+        if(resetTimer > 2){
+            resetTimer -= 2;
+            affect.Clear();
         }
+        // if(affect.Count <= 0)
+        // {
+        //     Debug.Log("ok");
+        //     GoBackToNormal();
+        // }
         
     }
     #endregion
@@ -66,23 +73,31 @@ public class PixelBehaviours : MonoBehaviour
             switch (objectTag)
             {
                 case "SUN":
-                    sun++;
-                    //affect.Add("SUN");
+                    if(sun < 5)
+                        sun++;
+                    if(!affect.Contains("SUN"))
+                        affect.Add("SUN");
                     break;
 
                 case "MOON":
-                    moon++;
-                    //affect.Add("MOON");
+                    if(moon < 5)
+                        moon++;
+                    if(!affect.Contains("MOON"))
+                        affect.Add("MOON");
                     break;
 
                 case "WIND":
-                    wind++;
-                    //affect.Add("WIND");
+                    if(wind < 5)
+                        wind++;
+                    if(!affect.Contains("WIND"))
+                        affect.Add("WIND");
                     break;
 
                 case "RAIN":
-                    rain++;
-                    //affect.Add("RAIN");
+                    if(rain<5)
+                        rain++;
+                    if(!affect.Contains("RAIN"))
+                        affect.Add("RAIN");
                     break;
 
                 default:
@@ -134,6 +149,7 @@ public class PixelBehaviours : MonoBehaviour
         {
             UpdateLand("banquise");
         }
+        else UpdateLand("n'importe quoi");
     }
 
     private void UpdateLand(string newLand)
@@ -187,18 +203,32 @@ public class PixelBehaviours : MonoBehaviour
 
     void GoBackToNormal()
     {
+        if(!affect.Contains("SUN") && sun > 0)
+            sun --;
+        if(!affect.Contains("RAIN") && rain > 0)
+            rain --;
+        if(!affect.Contains("MOON") && moon > 0)
+            moon --;
+        if(!affect.Contains("WIND") && wind > 0)
+            wind --;
+
+        VerifColor();
+
+        Timer t = new Timer(0.5f, GoBackToNormal);
+        t.Play();
+
         //Debug.Log(Time.deltaTime);
-        if(sun >0)
-            sun -= reduce.Evaluate(Time.deltaTime);
+        // if(sun >0)
+        //     sun -= reduce.Evaluate(Time.deltaTime);
 
-        if (moon > 0)
-            moon -= reduce.Evaluate(Time.deltaTime);
+        // if (moon > 0)
+        //     moon -= reduce.Evaluate(Time.deltaTime);
 
-        if (rain > 0)
-            rain -= reduce.Evaluate(Time.deltaTime);
+        // if (rain > 0)
+        //     rain -= reduce.Evaluate(Time.deltaTime);
 
-        if (wind > 0)
-            wind -= reduce.Evaluate(Time.deltaTime); 
+        // if (wind > 0)
+        //     wind -= reduce.Evaluate(Time.deltaTime); 
     }
 
 

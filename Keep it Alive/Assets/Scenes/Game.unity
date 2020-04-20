@@ -3974,6 +3974,18 @@ PrefabInstance:
       propertyPath: viewMeshFilter
       value: 
       objectReference: {fileID: 1575675806}
+    - target: {fileID: 672814038, guid: 3080e97139782c341825ee55e4a1ce0f, type: 3}
+      propertyPath: delay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 672814038, guid: 3080e97139782c341825ee55e4a1ce0f, type: 3}
+      propertyPath: viewAngle
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 672814038, guid: 3080e97139782c341825ee55e4a1ce0f, type: 3}
+      propertyPath: viewRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4348481275192950829, guid: 3080e97139782c341825ee55e4a1ce0f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4070,6 +4082,18 @@ PrefabInstance:
     - target: {fileID: 142360707, guid: 829b18bac0892314c800e881f142c005, type: 3}
       propertyPath: m_TagString
       value: WIND
+      objectReference: {fileID: 0}
+    - target: {fileID: 142360709, guid: 829b18bac0892314c800e881f142c005, type: 3}
+      propertyPath: delay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 142360709, guid: 829b18bac0892314c800e881f142c005, type: 3}
+      propertyPath: viewAngle
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 142360709, guid: 829b18bac0892314c800e881f142c005, type: 3}
+      propertyPath: viewRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 142360710, guid: 829b18bac0892314c800e881f142c005, type: 3}
       propertyPath: target
@@ -4222,6 +4246,18 @@ PrefabInstance:
       propertyPath: viewMeshFilter
       value: 
       objectReference: {fileID: 195851531}
+    - target: {fileID: 678968805, guid: 68bd34cbd1698484aa80d00c8e10f06e, type: 3}
+      propertyPath: delay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 678968805, guid: 68bd34cbd1698484aa80d00c8e10f06e, type: 3}
+      propertyPath: viewAngle
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 678968805, guid: 68bd34cbd1698484aa80d00c8e10f06e, type: 3}
+      propertyPath: viewRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6657077977751533144, guid: 68bd34cbd1698484aa80d00c8e10f06e,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -4347,6 +4383,18 @@ PrefabInstance:
       propertyPath: viewMeshFilter
       value: 
       objectReference: {fileID: 585482097}
+    - target: {fileID: 946683952, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
+      propertyPath: delay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 946683952, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
+      propertyPath: viewAngle
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 946683952, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
+      propertyPath: viewRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7584059817451897878, guid: 6ed0a55f0a95fc241a32c6bbe4153a33,
         type: 3}
       propertyPath: m_Name
