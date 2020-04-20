@@ -31,7 +31,7 @@ public class MouseControler : MonoBehaviour
         }
 
         if(Input.GetKeyDown("escape")){
-            Camera.main.GetComponent<FollowTarget>().aim.transform.position = Vector3.zero;
+            Camera.main.GetComponent<mCamera>().ResetPosition();
             UIManager.instance.Return();
         }
     }
