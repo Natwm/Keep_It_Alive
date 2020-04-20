@@ -58,7 +58,7 @@ public class Orbiter: MonoBehaviour
         return new Vector3(up.y, -up.x, up.z);
     }
 
-    Vector3 Up(){
+    public Vector3 Up(){
         return (transform.position - planete.transform.position).normalized;
     }
 

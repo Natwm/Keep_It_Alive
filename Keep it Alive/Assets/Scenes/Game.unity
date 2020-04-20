@@ -907,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443546656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.036651243, y: 0.04866329, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 5}
   m_Children:
   - {fileID: 1866552189}
@@ -1127,7 +1127,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1187,7 +1187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563453728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19352724, y: 0.013605696, z: -1.140625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 710073504}
@@ -3742,7 +3742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866552189}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Collider Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3962,6 +3962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOV
       objectReference: {fileID: 0}
+    - target: {fileID: 672814035, guid: 3080e97139782c341825ee55e4a1ce0f, type: 3}
+      propertyPath: m_TagString
+      value: SUN
+      objectReference: {fileID: 0}
     - target: {fileID: 672814037, guid: 3080e97139782c341825ee55e4a1ce0f, type: 3}
       propertyPath: target
       value: 
@@ -4063,6 +4067,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOV
       objectReference: {fileID: 0}
+    - target: {fileID: 142360707, guid: 829b18bac0892314c800e881f142c005, type: 3}
+      propertyPath: m_TagString
+      value: WIND
+      objectReference: {fileID: 0}
+    - target: {fileID: 142360710, guid: 829b18bac0892314c800e881f142c005, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 443546656}
     - target: {fileID: 374377201, guid: 829b18bac0892314c800e881f142c005, type: 3}
       propertyPath: m_LocalPosition.x
       value: -80.86
@@ -4198,6 +4210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOV
       objectReference: {fileID: 0}
+    - target: {fileID: 678968802, guid: 68bd34cbd1698484aa80d00c8e10f06e, type: 3}
+      propertyPath: m_TagString
+      value: MOON
+      objectReference: {fileID: 0}
     - target: {fileID: 678968804, guid: 68bd34cbd1698484aa80d00c8e10f06e, type: 3}
       propertyPath: target
       value: 
@@ -4318,6 +4334,10 @@ PrefabInstance:
     - target: {fileID: 946683949, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
       propertyPath: m_Name
       value: FOV
+      objectReference: {fileID: 0}
+    - target: {fileID: 946683949, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
+      propertyPath: m_TagString
+      value: RAIN
       objectReference: {fileID: 0}
     - target: {fileID: 946683951, guid: 6ed0a55f0a95fc241a32c6bbe4153a33, type: 3}
       propertyPath: target

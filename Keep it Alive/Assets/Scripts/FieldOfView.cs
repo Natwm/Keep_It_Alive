@@ -75,7 +75,7 @@ public class FieldOfView : MonoBehaviour
         {
             Transform target = targetsInRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.right, dirToTarget) < viewAngle / 2)
+            if (Vector3.Angle(-transform.parent.GetComponent<Orbiter>().Up(), dirToTarget) < viewAngle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
                 visibleGameobject.Add(targetsInRadius[i].gameObject);
