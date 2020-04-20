@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour
         instance = this;
         source = GetComponent<AudioSource>();
     }
-
+    
     public void Play(AudioClip clip){
         source.clip = clip;
         source.pitch = Random.Range(-1f,1f);
