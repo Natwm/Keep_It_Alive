@@ -39,7 +39,7 @@ public class Orbiter: MonoBehaviour
         Vector3 velocity = Vector3.zero;
         
         //Altitude
-        velocity += (radius - (transform.position - planete.transform.position).magnitude) * Up();
+        velocity += (radius - (transform.position - planete.transform.position).magnitude)/5 * Up();
         
         //Rotation
         float degAimed =    Mathf.Atan2(aimedPosition.y         - planete.transform.position.y, aimedPosition.x         - planete.transform.position.x);
