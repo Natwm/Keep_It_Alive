@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 374377204}
   - component: {fileID: 374377203}
   - component: {fileID: 6182977620751395143}
+  - component: {fileID: 7709568022954014867}
   m_Layer: 0
   m_Name: True Orbiter
   m_TagString: Orbiter
@@ -122,6 +123,7 @@ MonoBehaviour:
   deltaTurnRate: 20
   aim: {fileID: 1120084224}
   planete: {fileID: 0}
+  clips: []
 --- !u!58 &374377205
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,6 +222,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7709568022954014867
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374377200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 375aa0569ecea334fba3eb4df66d6f1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1120084224
 GameObject:
   m_ObjectHideFlags: 0
