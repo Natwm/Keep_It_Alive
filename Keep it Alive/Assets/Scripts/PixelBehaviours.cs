@@ -47,7 +47,7 @@ public class PixelBehaviours : MonoBehaviour
         mySprite = GetComponent<SpriteRenderer>();
         spotMat = GetComponent<Renderer>();
         UpdateLand(startState);
-        //mySprite.color = Color.red;
+        
         GoBackToNormal();
     }
     private void Update()
@@ -57,11 +57,7 @@ public class PixelBehaviours : MonoBehaviour
             resetTimer -= 2;
             affect.Clear();
         }
-        // if(affect.Count <= 0)
-        // {
-        //     Debug.Log("ok");
-        //     GoBackToNormal();
-        // }
+
         
     }
     #endregion
@@ -157,46 +153,57 @@ public class PixelBehaviours : MonoBehaviour
         switch (newLand) {
             case "montagne":
                 anim.SetTrigger("isMountain");
+                mySprite.color = myColor[0].Color;
                 break;
 
             case "tundra":
                 anim.SetTrigger("isTundra");
+                mySprite.color = myColor[1].Color;
                 break;
 
             case "lac":
                 anim.SetTrigger("isWater");
+                mySprite.color = myColor[2].Color;
                 break;
 
             case "desert":
                 anim.SetTrigger("isDesert");
+                mySprite.color = myColor[3].Color;
                 break;
 
             case "prairie":
                 anim.SetTrigger("isPlaine");
+                mySprite.color = myColor[4].Color;
                 break;
 
             case "foret":
                 anim.SetTrigger("isForest");
+                mySprite.color = myColor[5].Color;
                 break;
 
             case "ocean":
                 anim.SetTrigger("isWater");
+                mySprite.color = myColor[6].Color;
                 break;
 
             case "banquise":
                 anim.SetTrigger("isBanquise");
+                mySprite.color = myColor[7].Color;
                 break;
 
             case "glacier":
                 anim.SetTrigger("isGlacier");
+                mySprite.color = myColor[8].Color;
                 break;
 
             case "neutral":
-                anim.SetTrigger("isWater");
+                mySprite.sprite = myImg[9].Image;
+                mySprite.color = myColor[9].Color;
                 break;
 
             default:
-                anim.SetTrigger("isWater");
+                mySprite.sprite = myImg[9].Image;
+                mySprite.color = myColor[9].Color;
                 break;
         }
     }

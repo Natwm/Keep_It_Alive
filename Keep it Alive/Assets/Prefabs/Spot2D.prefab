@@ -146,7 +146,7 @@ MonoBehaviour:
   - name: Montagne
     image: {fileID: 21300010, guid: 7b3de19ab7739cc40b90cc286589290b, type: 3}
   - name: Tundra
-    image: {fileID: 21300006, guid: 7b3de19ab7739cc40b90cc286589290b, type: 3}
+    image: {fileID: 21300020, guid: 7b3de19ab7739cc40b90cc286589290b, type: 3}
   - name: Lac
     image: {fileID: 21300014, guid: 7b3de19ab7739cc40b90cc286589290b, type: 3}
   - name: Desert
